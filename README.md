@@ -36,5 +36,5 @@ Give an example
 
 ## License
 
-This project is licensed under the [MIT License](https://mit-license.org)
+This project is released under the [MIT License](https://mit-license.org)
 

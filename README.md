@@ -46,13 +46,13 @@ Give an example
 ```
 
 ## Authors
-* **Shafiul Azam** - *Initial work* - [PurpleBooth](https://github.com/shafiul)
+* **Shafiul Azam** - [Github Link](https://github.com/shafiul)
 
-* **Shohed Shakil** - *Initial work* - [PurpleBooth](https://github.com/shohedshakil)
+* **Shohed Shakil** - [Github Link](https://github.com/shohedshakil)
 
-* **Samiul Arshad** - *Initial work* - [PurpleBooth](https://github.com/samiarshad)
+* **Samiul Arshad** - [Github Link](https://github.com/samiarshad)
 
-* **Md Hasanuzzaman Noor** - *Initial work* - [PurpleBooth](https://github.com/zamannoor)
+* **Md Hasanuzzaman Noor** - [Github Link](https://github.com/zamannoor)
 
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.

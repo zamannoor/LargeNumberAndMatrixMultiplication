@@ -65,7 +65,7 @@ public class UnitTestBigInteger {
     }
   }
   
-  public void unitTestMultiplication() {
+  public void unitTestMultiplicationSchool() {
     Random rand = new Random();
     int i;
     for (i=0; i<TEST_ITERATION; i++) {
@@ -90,6 +90,72 @@ public class UnitTestBigInteger {
       System.out.println("Grade School Multiplication Test Failed");
     }
   }
-
+  
+  public void unitTestMultiplicationKaratsuba() {
+    Random rand = new Random();
+    int i;
+    for (i=0; i<TEST_ITERATION; i++) {
+      BigInteger a =MinBigNumber.add(new BigInteger(INPUT_LENGTH, rand));
+      BigInteger b = MinBigNumber.add(new BigInteger(INPUT_LENGTH, rand));
+      String c = a.multiply(b).toString();
+      BigIntegers aa = new BigIntegers(a+"");
+      BigIntegers bb = new BigIntegers(b+"");
+      
+      BigIntegers result = aa.MultiplyByKaratsuba(bb);
+      if (!result.toString().equals(c)) {
+        System.out.println("Multiplication(karatsuba) Test Failed: \n"+a+"\n"+b+"\nActual: "+ c+"\n Manual: "+result.toString());
+        break;
+      }
+      
+      
+      
+    }
+    if (i == TEST_ITERATION) {
+      System.out.println(i+" Karatsuba Multiplication Test Passed");
+    } else {
+      System.out.println("Karatsuba Multiplication Test Failed");
+    }
+  }
+  
+  public void unitTestMultiplicationGaussian() {
+    Random rand = new Random();
+    int i;
+    for (i=0; i<TEST_ITERATION; i++) {
+      BigInteger a =MinBigNumber.add(new BigInteger(INPUT_LENGTH, rand));
+      BigInteger b = MinBigNumber.add(new BigInteger(INPUT_LENGTH, rand));
+      String c = a.multiply(b).toString();
+      BigIntegers aa = new BigIntegers(a+"");
+      BigIntegers bb = new BigIntegers(b+"");
+      
+      BigIntegers result = aa.MultiplyByGaussian(bb);
+      if (!result.toString().equals(c)) {
+        System.out.println("Multiplication(Gaussian) Test Failed: \n"+a+"\n"+b+"\nActual: "+ c+"\n Manual: "+result.toString());
+        break;
+      }
+      
+      
+      
+    }
+    if (i == TEST_ITERATION) {
+      System.out.println(i+" Gaussian Multiplication Test Passed");
+    } else {
+      System.out.println("Gaussian Multiplication Test Failed");
+    }
+  }
+  
+  public static void main(String[] args) {
+ // Sami Arshad's Department
+    UnitTestBigInteger unitTest = new UnitTestBigInteger();
+    unitTest.unitTestAddition();
+    unitTest.unitTestSubtraction();
+    unitTest.unitTestMultiplicationSchool();
+    unitTest.unitTestMultiplicationGaussian();
+    unitTest.unitTestMultiplicationKaratsuba();
+    // creation of sparse matrix
+    
+    // try the matrix multiplication, creation of matrix you can see in Controller
+    // It's not actually a matrix, it's a hash map.
+    
+  }
 
 }

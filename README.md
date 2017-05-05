@@ -26,7 +26,7 @@ Give an example
 ## Authors
 * **Shafiul Azam** - [Github Link](https://github.com/shafiul)
 
-* **Shohed Shakil** - [Github Link](https://github.com/shohedshakil)
+* **Shohedul Hasan** - [Github Link](https://github.com/shohedshakil)
 
 * **Samiul Arshad** - [Github Link](https://github.com/samiarshad)
 

@@ -1,6 +1,6 @@
 # Large Number and Matrix Multiplication
 
-One Paragraph of project description goes here
+The aim of this project is to implement and evaluate various integer multiplication and matrix multiplication algorithms. The  algorithms that are implemented are grade school algorithm, Gauss algorithm and Karatsuba algorithm for integer multiplication and traditional and Strassen's algorithm for matrix multiplication. Finally, The performances of each combination of integer multiplication algorithms on matrix multiplication algorithms are measured by varying input size.
 
 ## Getting Started
 
@@ -11,24 +11,6 @@ Run:
 ### Prerequisites
 
 Java 8
-
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 

@@ -12,10 +12,6 @@ Run:
 
 Java 8
 
-```
-Give examples
-```
-
 ### Installing
 
 A step by step series of examples that tell you have to get a development env running
@@ -55,7 +51,6 @@ Give an example
 * **Md Hasanuzzaman Noor** - [Github Link](https://github.com/zamannoor)
 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 

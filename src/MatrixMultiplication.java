@@ -23,7 +23,6 @@ public class MatrixMultiplication {
   }
   
   
-  // ReadOnly
   BigIntegers InM(int i, int j) {
     int x=i*col+j;
     if (input1.containsKey(x)) {
@@ -93,9 +92,6 @@ public class MatrixMultiplication {
     }
     printWriter.close ();
   }
-  
-  
-  
   
   
   

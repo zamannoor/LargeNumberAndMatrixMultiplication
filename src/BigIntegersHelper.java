@@ -1,7 +1,5 @@
 
 public class BigIntegersHelper {
-  
-  
   static String add(String x, String y) {
     x = new StringBuffer(x).reverse().toString();
     y = new StringBuffer(y).reverse().toString();
@@ -102,14 +100,6 @@ public class BigIntegersHelper {
       return z.substring(i);
   }
   
-  public static String addZeroAtEnd(String z, int numZero) {
-    int i=0;
-    for (;i<numZero; i++) {
-      z = z +"0";
-    }
-    return z;
-  }
-  
   public static  BigIntegers SingleDigitMultiplication(BigIntegers a, int digit) {
     if (digit==0) {
       return new BigIntegers("0");
@@ -142,16 +132,96 @@ public class BigIntegersHelper {
     }
     
     int mid = l1/2;
-    BigIntegers a,b,c,d;
-    String chunkx1 = x.substring(0, mid);
-    String chunkx2 = x.substring(mid);
+    String a = x.substring(0, mid);
+    String b = x.substring(mid); 
     
-    int chunk2Len = chunkx2.length();
-    String chunky1 = "";
-    String chunky2 ="";
-    BigIntegers k1,k2,k3;
+    int chunk2Len = b.length();
+    String c= "0";
+    String d ="0";
+    
+    if (chunk2Len >= l2) {
+      d=y;
+    } else {
+      int temp = y.length() -chunk2Len;
+      c = y.substring(0, temp);
+      d = y.substring(temp);
+    }
     
     
-    return null;
+    BigIntegers ac= MultiplyGaussianRecursion(a, c);
+    ac.addZeroAtEnd(2*chunk2Len);
+    BigIntegers bd= MultiplyGaussianRecursion(b, d);
+    BigIntegers ad;
+    if (a.length() > d.length()) {
+      ad = MultiplyGaussianRecursion(a, d);
+    } else {
+      ad = MultiplyGaussianRecursion(d,a);
+    }
+    ad.addZeroAtEnd(chunk2Len);
+    
+    BigIntegers bc;
+    if (b.length() > c.length()) {
+      bc = MultiplyGaussianRecursion(b, c);
+    } else {
+      bc = MultiplyGaussianRecursion(c,b);
+    }
+    bc.addZeroAtEnd(chunk2Len);
+    
+    
+    return ac.add(bc).add(ad).add(bd);
   }
+  
+//Assuming that First one has >= length 
+ static BigIntegers MultiplyKaratsubaRecursion(String x, String y) {
+   int l1 = x.length();
+   int l2 = y.length();
+   if (l2 ==0) {
+     return new BigIntegers("0");
+   } else if (l2 == 1) {
+     return SingleDigitMultiplication(new BigIntegers(x),  ((int)(y.charAt(0)-'0')));
+   }
+   int mid = l1/2;
+   String x1 = x.substring(0, mid);
+   String x2 = x.substring(mid); 
+   
+   int chunk2Len = x2.length();
+   String y1= "0";
+   String y2 ="0";
+   
+   if (chunk2Len >= l2) {
+     y2=y;
+   } else {
+     int temp = y.length() -chunk2Len;
+     y1 = y.substring(0, temp);
+     y2 = y.substring(temp);
+   }
+
+   BigIntegers A,B,C;
+   if (x1.length() > y1.length()) {
+     A = MultiplyKaratsubaRecursion(x1, y1);
+   } else {
+     A = MultiplyKaratsubaRecursion(y1, x1);
+   }
+   
+   if (x2.length() > y2.length()) {
+     B = MultiplyKaratsubaRecursion(x2, y2);
+   } else {
+     B = MultiplyKaratsubaRecursion(y2, x2);
+   }
+   
+   BigIntegers x1PlusX2 = (new BigIntegers(x1)).add(new BigIntegers(x2));
+   BigIntegers y1PlusY2 = (new BigIntegers(y1)).add(new BigIntegers(y2));
+   
+   if (x1PlusX2.number.length() > y1PlusY2.number.length()) {
+     C = MultiplyKaratsubaRecursion(x1PlusX2.number, y1PlusY2.number);
+   } else {
+     C = MultiplyKaratsubaRecursion(y1PlusY2.number, x1PlusX2.number);
+   }
+   
+   BigIntegers K = C.subtract(A.add(B));
+   A.addZeroAtEnd(2* chunk2Len);
+   K.addZeroAtEnd(chunk2Len);
+   
+   return A.add(K.add(B));
+ }
 }

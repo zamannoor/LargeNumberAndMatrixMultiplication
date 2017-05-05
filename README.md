@@ -6,7 +6,7 @@ The aim of this project is to implement and evaluate various integer multiplicat
 
 Compile:  javac *.java
 
-Run: 
+Run: java Controller
 
 ### Prerequisites
 

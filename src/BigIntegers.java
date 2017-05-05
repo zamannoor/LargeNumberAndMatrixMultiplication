@@ -88,29 +88,57 @@ public class BigIntegers {
   }
   
   
-  public static BigIntegers MultiplyGaussian(BigIntegers a, BigIntegers b) {
-    
-    String x= a.number;
+  public BigIntegers MultiplyByGaussian(BigIntegers b) {
+    String x= this.number;
     String y = b.number;
-    
     int l1 = x.length();
     int l2 = y.length();
-    
+    BigIntegers result ;
     if (l1 >l2) {
-      return BigIntegersHelper.MultiplyGaussianRecursion(x, y);
+      result= BigIntegersHelper.MultiplyGaussianRecursion(x, y);
     } else {
-      return BigIntegersHelper.MultiplyGaussianRecursion(x, y);
+      result= BigIntegersHelper.MultiplyGaussianRecursion(y, x);
+    }
+    if (this.sign != b.sign && !result.isZero()) {
+      result = new BigIntegers("-"+result.number);
     }
     
+    return result;
   }
   
-  public static void main(String[] args) {
-   UnitTestBigInteger unitTest = new UnitTestBigInteger();
-   unitTest.unitTestAddition();
-   unitTest.unitTestSubtraction();
-   unitTest.unitTestMultiplication();
+  public BigIntegers MultiplyByKaratsuba(BigIntegers b) {
+    String x= this.number;
+    String y = b.number;
+    int l1 = x.length();
+    int l2 = y.length();
+    BigIntegers result ;
+    if (l1 >l2) {
+      result= BigIntegersHelper.MultiplyKaratsubaRecursion(x, y);
+    } else {
+      result= BigIntegersHelper.MultiplyKaratsubaRecursion(y, x);
+    }
+    if (this.sign != b.sign && !result.isZero()) {
+      result = new BigIntegers("-"+result.number);
+    }
+    
+    return result;
   }
   
+ 
+  
+  public boolean isZero() {
+    return this.number.charAt(0) =='0';
+  }
+
+  public  void addZeroAtEnd(int numZero) {
+    if (number.charAt(0) == '0') {
+      return;
+    }
+    int i=0;
+    for (;i<numZero; i++) {
+      this.number = this.number +"0";
+    }
+  }
   
   int compareValue(BigIntegers b) {
     int l1 = this.number.length();
@@ -127,7 +155,8 @@ public class BigIntegers {
   public String toString() {
     if (sign == 1) 
       return "-"+number;
-    return number;
+    else
+      return number;
   }
 
 }
